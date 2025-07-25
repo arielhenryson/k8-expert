@@ -1,6 +1,6 @@
 from google.adk.runners import InMemoryRunner
 from dotenv import load_dotenv
-from main_agent.agent import root_agent
+from k8_expert_agent.agent import root_agent
 from google.genai import types
 import asyncio
 
@@ -37,4 +37,4 @@ def run_agent(session_id: str, new_message: str):
 if __name__ == '__main__':
     session = create_session()
     run_agent(session.id, "Hello!")
-    run_agent(session.id, "What is the spaceflight news for today?")
+    run_agent(session.id, "What can you do for me?")

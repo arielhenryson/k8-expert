@@ -71,8 +71,8 @@ env = Environment(loader=FileSystemLoader("main_agent/prompts"))
 template = env.get_template("main_instruction.jinja")
 instruction = template.render()
 
-root_agent = Agent(
-    name="main_agent",
+k8_expert_agent = Agent(
+    name="k8_expert_agent",
     model="gemini-2.5-flash",
     description=(
         "An agent that helps users investigate and resolve issues in a "
