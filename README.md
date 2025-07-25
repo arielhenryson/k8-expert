@@ -10,12 +10,12 @@ Your AI-powered SRE for Kubernetes
    conda activate k8-expert
    ```
 
-2. **Install dependencies
+2. Install dependencies
    ```bash
    pip install .
    ```
 
-3. **Run the application:**
+3. Run the application
    ```bash
    chainlit run app.py
    ```
