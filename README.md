@@ -17,7 +17,12 @@ Your AI-powered assistant for Kubernetes.
    pip install .
    ```
 
-3. Run the Agent
+3. Set up your environment variables
+   ```bash
+   cp k8_expert_agent/.env.example k8_expert_agent/.env
+   ```
+
+4. Run the Agent
    ```bash
    adk web
    ```
