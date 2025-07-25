@@ -1,7 +1,7 @@
 from google.adk.agents import Agent
-import subprocess
 from jinja2 import Environment, FileSystemLoader
-
+import os
+import subprocess
 
 def run_kubectl_command(command: str) -> dict:
     """
@@ -66,14 +66,16 @@ def run_kubectl_command(command: str) -> dict:
             "error_message": f"An unexpected error occurred: {str(e)}"
         }
 
-# Set up the Jinja2 environment
-env = Environment(loader=FileSystemLoader("main_agent/prompts"))
+script_dir = os.path.dirname(os.path.abspath(__file__))
+template_folder_path = os.path.join(script_dir, "prompts")
+env = Environment(loader=FileSystemLoader(template_folder_path))
+
 template = env.get_template("main_instruction.jinja")
 instruction = template.render()
 
-k8_expert_agent = Agent(
-    name="k8_expert_agent",
-    model="gemini-2.5-flash",
+root_agent = Agent(
+    name="root_agent",
+    model="gemini-2.0-flash",
     description=(
         "An agent that helps users investigate and resolve issues in a "
         "Kubernetes cluster by running kubectl commands."
