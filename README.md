@@ -10,7 +10,7 @@ Your AI-powered SRE for Kubernetes
    conda activate k8-expert
    ```
 
-2. **Install dependencies using uv:**
+2. **Install dependencies
    ```bash
    pip install .
    ```
