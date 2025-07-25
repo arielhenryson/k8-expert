@@ -1,6 +1,6 @@
 # k8-expert
 
-This is a Chainlit application.
+Your AI-powered SRE for Kubernetes
 
 ## Setup
 
