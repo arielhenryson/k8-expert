@@ -1,6 +1,8 @@
-# jones-bot
+# k8-expert
 
-Your AI-powered assistant for jones
+Your AI-powered assistant for Kubernetes.
+
+![Demo](public/demo.png)
 
 ## Setup
 
