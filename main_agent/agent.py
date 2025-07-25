@@ -1,5 +1,6 @@
 from google.adk.agents import Agent
 import subprocess
+from jinja2 import Environment, FileSystemLoader
 
 
 def run_kubectl_command(command: str) -> dict:
@@ -65,6 +66,10 @@ def run_kubectl_command(command: str) -> dict:
             "error_message": f"An unexpected error occurred: {str(e)}"
         }
 
+# Set up the Jinja2 environment
+env = Environment(loader=FileSystemLoader("main_agent/prompts"))
+template = env.get_template("main_instruction.jinja")
+instruction = template.render()
 
 root_agent = Agent(
     name="main_agent",
@@ -73,20 +78,6 @@ root_agent = Agent(
         "An agent that helps users investigate and resolve issues in a "
         "Kubernetes cluster by running kubectl commands."
     ),
-    instruction=(
-        "You are an expert Kubernetes administrator. Your goal is to help users "
-        "diagnose and fix problems in their clusters. "
-        "Follow these steps strictly:\n"
-        "1. Understand the user's problem.\n"
-        "2. Formulate a step-by-step plan that involves running one or more "
-        "`kubectl` commands to investigate the issue.\n"
-        "3. **IMPORTANT**: Present this plan to the user for approval. "
-        "Clearly state which commands you intend to run.\n"
-        "4. **DO NOT use the `run_kubectl_command` tool until the user "
-        "explicitly says 'approve', 'yes', 'proceed', or gives similar consent.**\n"
-        "5. Once approved, execute the plan step-by-step using the tool.\n"
-        "6. Analyze the output of each command and report your findings to the user.\n"
-        "7. If the initial plan doesn't solve the problem, propose a new plan."
-    ),
+    instruction=instruction,
     tools=[run_kubectl_command],
 )
