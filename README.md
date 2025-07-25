@@ -1,6 +1,6 @@
-# k8-expert
+# jones-bot
 
-Your AI-powered SRE for Kubernetes
+Your AI-powered assistant for jones
 
 ## Setup
 
@@ -15,14 +15,7 @@ Your AI-powered SRE for Kubernetes
    pip install .
    ```
 
-3. Create a `.env` file and add your `GOOGLE_API_KEY`:
+3. Run the Agent
    ```bash
-   touch .env
-   echo "GOOGLE_API_KEY=YOUR_API_KEY" > .env
-   ```
-   Replace `YOUR_API_KEY` with your actual Google API key.
-
-4. Run the application
-   ```bash
-   chainlit run app.py
+   adk web
    ```

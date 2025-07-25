@@ -1,10 +1,9 @@
 [project]
 name = "k8-expert"
-version = "0.1.0"
+version = "0.0.1"
 dependencies = [
     "python-dotenv", 
-    "pydantic-ai",
-    "chainlit",
+    "google-adk",
 ]
 
 [build-system]
