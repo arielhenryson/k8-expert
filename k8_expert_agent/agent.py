@@ -75,7 +75,7 @@ instruction = template.render()
 
 root_agent = Agent(
     name="root_agent",
-    model="gemini-2.0-flash",
+    model="gemini-live-2.5-flash-preview",
     description=(
         "An agent that helps users investigate and resolve issues in a "
         "Kubernetes cluster by running kubectl commands."
